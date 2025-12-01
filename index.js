@@ -106,7 +106,11 @@ async function processBatch(files, batchIndex, totalBatches) {
 }
 
 async function main() {
-  const files = process.argv.slice(2);
+  console.log("in");
+
+  const files = process.argv.slice(3);
+
+  console.log(process.argv);
 
   // Find all haml files recursively
   //const files = await glob("app/views/**/*.haml");
