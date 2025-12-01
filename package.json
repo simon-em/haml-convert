@@ -1,13 +1,13 @@
 {
   "name": "haml-convert",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "license": "ISC",
   "author": "",
   "type": "module",
   "main": "index.js",
   "bin": {
-    "to-erb": "./index.js"
+    "to-erb": "node ./index.js"
   },
   "scripts": {
     "start": "node index.js"
