@@ -1,10 +1,6 @@
-import dotenv from "dotenv";
 import { GoogleGenAI } from "@google/genai";
 import path from "path";
-import { glob } from "glob";
 import fs from "fs/promises";
-
-dotenv.config();
 
 // 1. CONFIGURATION
 // Replace with your actual API Key or set GOOGLE_API_KEY in a .env file
