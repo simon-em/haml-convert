@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { GoogleGenAI } from "@google/genai";
 import path from "path";
 import fs from "fs/promises";
