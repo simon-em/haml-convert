@@ -7,6 +7,7 @@ import fs from "fs/promises";
 // 1. CONFIGURATION
 // Replace with your actual API Key or set GOOGLE_API_KEY in a .env file
 const API_KEY = process.env.GOOGLE_API_KEY;
+const FORMAT = process.env.FORMAT || "haml";
 const MODEL_NAME = "gemini-3-pro-preview";
 
 if (!API_KEY) {
@@ -39,11 +40,11 @@ async function convertFile(filePath) {
     // 2. CALL GEMINI API
     const prompt = `
       You are an expert Ruby on Rails developer. 
-      Convert the following HAML code to valid ERB (Embedded Ruby). 
+      Convert the following ${FORMAT.toUpperCase()} code to valid ERB (Embedded Ruby). 
       Do not include any markdown formatting, backticks, or explanation. 
       Return ONLY the raw ERB code.
       
-      HAML Code:
+      ${FORMAT.toUpperCase()} Code:
       ${hamlContent}
     `;
 
@@ -67,7 +68,7 @@ async function convertFile(filePath) {
 
     // 3. WRITE NEW FILE AND REMOVE OLD ONE
     const dir = path.dirname(filePath);
-    const name = path.basename(filePath, ".haml");
+    const name = path.basename(filePath, `.${FORMAT}`);
     // Rails usually expects .html.erb for views, but we keep the base logic generic
     // If the file was 'index.html.haml', this results in 'index.html.erb'
     // If it was 'header.haml', it becomes 'header.erb'
